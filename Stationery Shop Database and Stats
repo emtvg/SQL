@@ -1,0 +1,36 @@
+--Create stationery shop database
+
+CREATE TABLE stationery (id integer primary key , item text , quantity integer , color text , price integer , aisle integer ) ;
+
+INSERT INTO stationery VALUES ( 1 , "gel pens", 7 , "blue", 2  ,1 );
+INSERT INTO stationery VALUES ( 2 , "gel pens", 8 , "red", 2 , 1 );
+INSERT INTO stationery VALUES ( 3 , "highlighters", 8 ,"yellow",1.50 , 1 );
+INSERT INTO stationery VALUES ( 4 , "markers", 9 , "black", 1.50 , 1 );
+INSERT INTO stationery VALUES ( 5 , "pencilcases", 2 ,"light blue",5.99 ,3 );
+INSERT INTO stationery VALUES ( 6 , "pencilcases", 3 ,"pink", 5.99 ,3 );
+INSERT INTO stationery VALUES ( 7 , "notebooks", 5 , "brown", 3 ,2 );
+INSERT INTO stationery VALUES ( 8 , "erasers", 10 , "white", 0.50 ,1 );
+INSERT INTO stationery VALUES ( 9 , "pencils", 17 , "black", 1 , 1 );
+INSERT INTO stationery VALUES ( 10 , "brushes", 25 , "white" , 7.5 , 2 );
+INSERT INTO stationery VALUES ( 11 , "rulers", 5 , "light blue", 0.50 ,1 );
+INSERT INTO stationery VALUES ( 12 , "sticky notes", 12 ,"white", 1 , 2 );
+INSERT INTO stationery VALUES ( 13 , "sharpeners" , 7 , "grey" , 1 , 1 );
+INSERT INTO stationery VALUES ( 14 , "bags", 4 , "black", 10.99 , 3 );
+INSERT INTO stationery VALUES ( 15 , "bags" , 5 , "white", 10.99, 3 );
+INSERT INTO stationery VALUES ( 16 , "backpacks", 10 , "dark blue", 30 , 3 );
+INSERT INTO stationery VALUES ( 17 , "scissors", 10 , "red" , 0.80 , 1 );
+INSERT INTO stationery VALUES ( 18 , " paint kits", 6 , "multicolor", 20 , 2 );
+
+--display database ordered by price
+SELECT * FROM stationery ORDER BY price;
+
+--what is the summed price of the all items in the stationery shop?
+SELECT SUM(price) FROM stationery;
+
+--what is the average price of items in the first aisle?
+SELECT AVG(price) FROM stationery WHERE aisle='1'; 
+
+--which are the 10 items of the stationery with the most quantity?
+SELECT item,color,price FROM stationery 
+ORDER BY quantity DESC 
+limit 10;
